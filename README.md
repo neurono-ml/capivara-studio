@@ -26,7 +26,7 @@ Após publicar como repo separado (`neurono-ml/capivara-studio`), instalar
 via agent-skills:
 
 ```bash
-agent skills add neurono-ml/capivara-studio
+npx skills add neurono-ml/capivara-studio
 ```
 
 Alternativa: clonar este repo e apontar a skill em `~/.agents/skills/`:

@@ -1,6 +1,6 @@
 ---
 name: capivara-studio
-description: Gera vídeos longos de YouTube (16:9 1080p H.264), YouTube Shorts, Instagram Reels e TikTok (9:16) e carrosséis Instagram (4:5) a partir de artigos. Roteiro com SEO por plataforma, cenas Manim animadas (equações, código, gráficos, tabelas, diagramas), TTS com dublagem, montagem FFmpeg e pipeline Docker reprodutível — pipeline completo artigo→vídeo.
+description: "Gera vídeos longos de YouTube (16:9 1080p H.264), YouTube Shorts, Instagram Reels e TikTok (9:16) e carrosséis Instagram (4:5) a partir de artigos: roteiro com SEO por plataforma, cenas Manim animadas (equações, código, gráficos, tabelas, diagramas), TTS com dublagem, montagem FFmpeg e pipeline Docker reprodutível — pipeline completo artigo→vídeo."
 version: 0.1.0
 author: neurono-ml
 license: MIT
