@@ -1,0 +1,32 @@
+name: smoke-test
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'docker/**'
+      - 'scripts/**'
+  workflow_dispatch:
+
+env:
+  IMAGE: ghcr.io/neurono-ml/capivara-studio-runner
+
+jobs:
+  smoke-test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build imagem local
+        run: docker build -f docker/Dockerfile -t $IMAGE:pr .
+      - name: Rodar smoke-test (render + qa_probe, SEM push)
+        env:
+          CAPY_IMAGE: ${{ env.IMAGE }}:pr
+        run: |
+          chmod +x docker/smoke-test.sh scripts/*.sh
+          ./docker/smoke-test.sh
+      - name: Relatar artefatos em falha
+        if: failure()
+        run: |
+          echo "smoke-test falhou; ver log acima para o passo que quebrou"

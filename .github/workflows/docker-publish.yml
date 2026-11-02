@@ -1,0 +1,95 @@
+name: docker-publish
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+    paths:
+      - 'docker/**'
+      - 'scripts/**'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'docker/**'
+      - 'scripts/**'
+
+env:
+  IMAGE: ghcr.io/neurono-ml/capivara-studio-runner
+
+jobs:
+  smoke-test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: build imagem local (tag CI)
+        run: |
+          docker build -f docker/Dockerfile -t $IMAGE:ci .
+      - name: smoke-test (render text_callout + qa_probe)
+        env:
+          PLATFORM: yt-long
+        run: |
+          chmod +x docker/smoke-test.sh scripts/*.sh
+          ./docker/smoke-test.sh
+
+  trivy-scan:
+    runs-on: ubuntu-latest
+    needs: smoke-test
+    permissions:
+      contents: read
+      packages: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: build imagem para o scan
+        run: docker build -f docker/Dockerfile -t $IMAGE:scan .
+      - name: Trivy scan (HIGH/CRITICAL fail)
+        uses: aquasecurity/trivy-action@0.24.0
+        with:
+          scan-type: image
+          image-ref: ${{ env.IMAGE }}:scan
+          format: table
+          exit-code: '1'
+          severity: HIGH,CRITICAL
+          ignore-unfixed: true
+
+  build-and-push:
+    runs-on: ubuntu-latest
+    needs: [smoke-test, trivy-scan]
+    if: github.event_name != 'pull_request'
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Login GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Calcular tags (latest, vX.Y.Z do tag, sha-short)
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.IMAGE }}
+          tags: |
+            type=raw,value=latest,enable={{is_default_branch}}
+            type=semver,pattern={{version}}
+            type=sha,format=short
+      - name: Build & push multi-arch (gha cache)
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: docker/Dockerfile
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
