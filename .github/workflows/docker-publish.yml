@@ -31,6 +31,7 @@ jobs:
       - name: smoke-test (render text_callout + qa_probe)
         env:
           PLATFORM: yt-long
+          CAPY_IMAGE: ${{ env.IMAGE }}:ci
         run: |
           chmod +x docker/smoke-test.sh scripts/*.sh
           ./docker/smoke-test.sh
