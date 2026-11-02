@@ -56,6 +56,9 @@ RUN python3 -m venv /opt/capy && \
     /opt/capy/bin/pip install --no-cache-dir -U 'urllib3>=2.8.0' 'setuptools>=78.1.1' && \
     rm -f /tmp/requirements.txt
 
+# deps do Python do SISTEMA que o Debian deixa desatualizadas (Trivy HIGH/CRITICAL)
+RUN python3 -m pip install --no-cache-dir -U 'setuptools>=78.1.1' 'urllib3>=2.8.0' 'msgpack>=1.2.3'
+
 # slim: remove toolchain/headers p/ build (wheels já compilados; runtime continua)
 RUN apt-get update && apt-get purge -y --auto-remove gcc python3-dev libcairo2-dev libpango1.0-dev libglib2.0-dev pkg-config && \
     rm -rf /var/lib/apt/lists/*
