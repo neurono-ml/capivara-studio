@@ -48,11 +48,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # --- user não-proprietário capy (uid 1000)
 RUN useradd --create-home --uid 1000 --shell /usr/sbin/nologin capy
 
-# --- virtualenv do runner + manim 0.18.1 (pin)
+# --- virtualenv do runner + manim 0.18.1 (pin) + deps corrigidas (Trivy HIGH/CRITICAL)
 COPY docker/requirements.txt /tmp/requirements.txt
 RUN python3 -m venv /opt/capy && \
-    /opt/capy/bin/pip install --no-cache-dir --upgrade pip setuptools wheel && \
+    /opt/capy/bin/pip install --no-cache-dir --upgrade pip setuptools urllib3 && \
     /opt/capy/bin/pip install --no-cache-dir -r /tmp/requirements.txt && \
+    /opt/capy/bin/pip install --no-cache-dir -U 'urllib3>=2.8.0' 'setuptools>=78.1.1' && \
     rm -f /tmp/requirements.txt
 
 # slim: remove toolchain/headers p/ build (wheels já compilados; runtime continua)
