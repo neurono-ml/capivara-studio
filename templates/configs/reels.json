@@ -1,0 +1,45 @@
+{
+  "session_id": "EXAMPLE-IG-REELS",
+  "format": "ig_reels",
+  "target_duration_s": 40,
+  "total_duration_s": 0,
+  "brand": "brand.example.json",
+  "segments": [
+    {
+      "id": "seg-001",
+      "chapter": "Hook",
+      "cta": null,
+      "tipo_de_cena": "text_callout",
+      "narracao": "Ninguém te mostra isso na documentação.",
+      "duracao_alvo_s": 3,
+      "elementos_visuais": "hook grande, texto abaixo do safe-top (y ≥ 250px)"
+    },
+    {
+      "id": "seg-002",
+      "chapter": "Insight",
+      "cta": null,
+      "tipo_de_cena": "equation",
+      "narracao": "O custo do seu build é o tempo fixo mais o tempo por crate vezes a taxa de reuso. Adivinha qual termo é desprezado.",
+      "duracao_alvo_s": 15,
+      "elementos_visuais": "equação com highlight no termo da taxa de reuso"
+    },
+    {
+      "id": "seg-003",
+      "chapter": "Prova",
+      "cta": null,
+      "tipo_de_cena": "chart",
+      "narracao": "Aqui está a prova: oito vezes mais rápido usando apenas duas linhas de CI.",
+      "duracao_alvo_s": 10,
+      "elementos_visuais": "barras 48 vs 6, cores vivas, texto dentro da safe-area"
+    },
+    {
+      "id": "seg-004",
+      "chapter": "CTA",
+      "cta": "like_share_end",
+      "tipo_de_cena": "outro_cta",
+      "narracao": "Salva esse reel e compartilha com o time. Legenda tá com as hashtags de nicho.",
+      "duracao_alvo_s": 12,
+      "elementos_visuais": "CTA final com mascote, legendas burn-in mínimas"
+    }
+  ]
+}

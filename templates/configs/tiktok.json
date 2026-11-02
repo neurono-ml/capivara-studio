@@ -1,0 +1,45 @@
+{
+  "session_id": "EXAMPLE-TIKTOK",
+  "format": "tiktok",
+  "target_duration_s": 38,
+  "total_duration_s": 0,
+  "brand": "brand.example.json",
+  "segments": [
+    {
+      "id": "seg-001",
+      "chapter": "Hook",
+      "cta": null,
+      "tipo_de_cena": "text_callout",
+      "narracao": "Um minuto inteiro de build do Zero. Sem mexer em nada no seu código.",
+      "duracao_alvo_s": 5,
+      "elementos_visuais": "hook grande + mascote, texto dentro do safe-area"
+    },
+    {
+      "id": "seg-002",
+      "chapter": "Dados",
+      "cta": null,
+      "tipo_de_cena": "chart",
+      "narracao": "Quarenta e oito segundos sem cache. Seis com cache. O mesmo código.",
+      "duracao_alvo_s": 11,
+      "elementos_visuais": "barras animadas, alto contraste"
+    },
+    {
+      "id": "seg-003",
+      "chapter": "Como",
+      "cta": null,
+      "tipo_de_cena": "code",
+      "narracao": "São duas linhas, vejam: cache reuso de target e chave de dependências.",
+      "duracao_alvo_s": 14,
+      "elementos_visuais": "código de CI com destaque nas duas linhas"
+    },
+    {
+      "id": "seg-004",
+      "chapter": "CTA",
+      "cta": "like_share_end",
+      "tipo_de_cena": "text_callout",
+      "narracao": "Salva pra não esquecer. Segue pra mais turbo de build.",
+      "duracao_alvo_s": 8,
+      "elementos_visuais": "CTA central, loop amigável conectando ao hook"
+    }
+  ]
+}

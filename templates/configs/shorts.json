@@ -1,0 +1,45 @@
+{
+  "session_id": "EXAMPLE-YT-SHORTS",
+  "format": "yt_shorts",
+  "target_duration_s": 45,
+  "total_duration_s": 0,
+  "brand": "brand.example.json",
+  "segments": [
+    {
+      "id": "seg-001",
+      "chapter": "Hook",
+      "cta": null,
+      "tipo_de_cena": "text_callout",
+      "narracao": "Seu build tá completo, mas 48 segundos pra cada commit é um roubo.",
+      "duracao_alvo_s": 5,
+      "elementos_visuais": "hook '48s → 6s' com mascote"
+    },
+    {
+      "id": "seg-002",
+      "chapter": "Dados",
+      "cta": null,
+      "tipo_de_cena": "chart",
+      "narracao": "Comparei dois builds: sem cache e com cache. A diferença é oito vezes.",
+      "duracao_alvo_s": 12,
+      "elementos_visuais": "gráfico de barras 48 vs 6 com contagem animada"
+    },
+    {
+      "id": "seg-003",
+      "chapter": "Explicação",
+      "cta": null,
+      "tipo_de_cena": "code",
+      "narracao": "Tudo isso vem de duas linhas no CI: um cache de target e uma chave de dependências.",
+      "duracao_alvo_s": 14,
+      "elementos_visuais": "bloco de código CI com linha destacada"
+    },
+    {
+      "id": "seg-004",
+      "chapter": "CTA",
+      "cta": "like_share_end",
+      "tipo_de_cena": "text_callout",
+      "narracao": "Manda pra quem reclama de build lenta. #Shorts",
+      "duracao_alvo_s": 14,
+      "elementos_visuais": "CTA central com mascote saindo"
+    }
+  ]
+}

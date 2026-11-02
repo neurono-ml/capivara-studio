@@ -1,0 +1,27 @@
+{
+  "palette": {
+    "bg": "#0B0F1A",
+    "fg": "#F5F5F5",
+    "accent": "#FFD166",
+    "accent2": "#7B5EA7",
+    "muted": "#8B93A7"
+  },
+  "fonts": {
+    "sans": "Noto Sans",
+    "mono": "Noto Sans Mono"
+  },
+  "mascot": {
+    "path": "/work/brand/assets/capivara.png",
+    "emoji": "🐾"
+  },
+  "handle": "@seuhandle",
+  "frame": {
+    "progress_bar": true,
+    "watermark": true,
+    "chapter_label": true
+  },
+  "voice": {
+    "tone_examples": [],
+    "tts_voice_id": ""
+  }
+}

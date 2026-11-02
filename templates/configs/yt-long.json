@@ -1,0 +1,54 @@
+{
+  "session_id": "EXAMPLE-YT-LONG",
+  "format": "yt-long",
+  "target_duration_s": 720,
+  "total_duration_s": 0,
+  "brand": "brand.example.json",
+  "segments": [
+    {
+      "id": "seg-001",
+      "chapter": "Cold open",
+      "cta": null,
+      "tipo_de_cena": "text_callout",
+      "narracao": "Você está compilando seu projeto errado — e a build do Rust prova isso em trinta segundos.",
+      "duracao_alvo_s": 7,
+      "elementos_visuais": "hook grande + mascote entrando no canto"
+    },
+    {
+      "id": "seg-002",
+      "chapter": "O que você vai aprender",
+      "cta": null,
+      "tipo_de_cena": "diagram",
+      "narracao": "Neste vídeo você vai aprender três coisas: como o cache de build funciona, onde ele quebra, e como recuperar setenta por cento do tempo.",
+      "duracao_alvo_s": 14,
+      "elementos_visuais": "flowchart com 3 passos se desenhando"
+    },
+    {
+      "id": "seg-003",
+      "chapter": "Tabela de tempos",
+      "cta": "subscribe_mid",
+      "tipo_de_cena": "table",
+      "narracao": "No build sem cache, cada crate é recompilada do zero. Com cache, muda tudo. Se você chegou até aqui, inscreve-se — os melhores detalhes vem nos próximos capítulos.",
+      "duracao_alvo_s": 20,
+      "elementos_visuais": "tabela 'sem cache 48s | com cache 6s' com destaque na segunda linha"
+    },
+    {
+      "id": "seg-004",
+      "chapter": "A equação do cache",
+      "cta": null,
+      "tipo_de_cena": "equation",
+      "narracao": "O custo total é a soma do tempo fixo mais o tempo por crate vezes a taxa de reuso. Destacando a taxa de reuso: aqui é onde você ganha ou perde o jogo.",
+      "duracao_alvo_s": 25,
+      "elementos_visuais": "equação passo a passo, highlight no termo da taxa de reuso"
+    },
+    {
+      "id": "seg-005",
+      "chapter": "Fim",
+      "cta": "comment_end",
+      "tipo_de_cena": "outro_cta",
+      "narracao": "Comenta qual tópico você quer no próximo vídeo — e se inscreve, o guia completo do cache está no artigo da descrição.",
+      "duracao_alvo_s": 12,
+      "elementos_visuais": "CTA final com mascote + handle"
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "session_id": "EXAMPLE-IG-CAROUSEL",
+  "format": "ig_carousel",
+  "target_duration_s": 0,
+  "total_duration_s": 0,
+  "brand": "brand.example.json",
+  "segments": [
+    {
+      "id": "slide-01",
+      "chapter": "Capa",
+      "cta": null,
+      "tipo_de_cena": "text_callout",
+      "narracao": "",
+      "duracao_alvo_s": 3,
+      "elementos_visuais": "capa com hook grande 'Build 8x mais rápido' + mascote",
+      "scene": {
+        "id": "slide-01",
+        "scene_type": "text_callout",
+        "output_format": "png",
+        "resolution": [1080, 1350],
+        "duration": 3,
+        "platform": "ig_carousel",
+        "brand": "/work/brand/brand.local.json",
+        "params": {
+          "text": "Build 8x mais rápido",
+          "position": "center",
+          "highlight_words": ["8x"],
+          "mascot": true,
+          "mascot_side": "bottom_right"
+        }
+      }
+    },
+    {
+      "id": "slide-02",
+      "chapter": "O dado",
+      "cta": null,
+      "tipo_de_cena": "chart",
+      "narracao": "",
+      "duracao_alvo_s": 3,
+      "elementos_visuais": "gráfico de barras 48s vs 6s",
+      "scene": {
+        "id": "slide-02",
+        "scene_type": "chart",
+        "output_format": "png",
+        "resolution": [1080, 1350],
+        "duration": 3,
+        "platform": "ig_carousel",
+        "brand": "/work/brand/brand.local.json",
+        "params": {
+          "kind": "bar",
+          "labels": ["Sem cache", "Com cache"],
+          "values": [48, 6],
+          "accent_bar": 1,
+          "animate_count": true,
+          "show_axis": true
+        }
+      }
+    },
+    {
+      "id": "slide-03",
+      "chapter": "Como",
+      "cta": null,
+      "tipo_de_cena": "code",
+      "narracao": "",
+      "duracao_alvo_s": 3,
+      "elementos_visuais": "as duas linhas de CI que resolvem",
+      "scene": {
+        "id": "slide-03",
+        "scene_type": "code",
+        "output_format": "png",
+        "resolution": [1080, 1350],
+        "duration": 3,
+        "platform": "ig_carousel",
+        "brand": "/work/brand/brand.local.json",
+        "params": {
+          "code": "cache:\n  paths:\n    - target/\nkey:\n  files:\n    - Cargo.lock",
+          "language": "yaml",
+          "mode": "lines",
+          "highlight_lines": [0],
+          "comment_popup": "Cache de build do Rust"
+        }
+      }
+    },
+    {
+      "id": "slide-04",
+      "chapter": "CTA",
+      "cta": "save_follow_end",
+      "tipo_de_cena": "outro_cta",
+      "narracao": "",
+      "duracao_alvo_s": 3,
+      "elementos_visuais": "CTA 'Salva pra depois' + handle + QR",
+      "scene": {
+        "id": "slide-04",
+        "scene_type": "outro_cta",
+        "output_format": "png",
+        "resolution": [1080, 1350],
+        "duration": 3,
+        "platform": "ig_carousel",
+        "brand": "/work/brand/brand.local.json",
+        "params": {
+          "cta_text": "Salva pra depois",
+          "sub_cta": "compartilha com o time",
+          "handle": "@seuhandle",
+          "mascot": true
+        }
+      }
+    }
+  ]
+}
